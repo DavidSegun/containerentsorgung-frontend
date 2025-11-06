@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "../../../../mercur"
+		},
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../mecurevendor"
+		}
+	],
+	"settings": {
+		"i18n-ally.localesPaths": [
+			"apps/backend/src/admin/routes/messages"
+		]
+	}
+}
