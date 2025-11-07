@@ -1,7 +1,7 @@
 "use client"
 
 import ErrorMessage from "@/components/molecules/ErrorMessage/ErrorMessage"
-import { setShippingMethod } from "@/lib/data/cart"
+import { setShippingMethod, removeShippingMethod } from "@/lib/data/cart"
 import { calculatePriceForShippingOption } from "@/lib/data/fulfillment"
 import { convertToLocale } from "@/lib/helpers/money"
 import { CheckCircleSolid, ChevronUpDown, Loader } from "@medusajs/icons"
@@ -67,7 +67,8 @@ const CartShippingMethodsSection: React.FC<ShippingProps> = ({
   const router = useRouter()
   const pathname = usePathname()
 
-  const isOpen = searchParams.get("step") === "delivery"
+  const stepParam = searchParams.get("step")
+  const isOpen = stepParam === "delivery" || stepParam === "y"
 
   const _shippingMethods = availableShippingMethods?.filter(
     (sm) =>
@@ -133,13 +134,30 @@ const CartShippingMethodsSection: React.FC<ShippingProps> = ({
       return
     }
 
-    await setShippingMethod({ cartId: cart.id, shippingMethodId: id }).catch(
-      (err) => {
-        setError(err.message)
+    // Remove existing shipping methods to avoid duplicates on re-select
+    if (cart.shipping_methods && cart.shipping_methods.length > 0) {
+      try {
+        await Promise.all(
+          cart.shipping_methods.map((m) => removeShippingMethod(m.id))
+        )
+      } catch (e: any) {
+        // non-fatal; continue trying to set the new method
       }
-    )
+    }
 
-    setIsLoadingPrices(false)
+    await setShippingMethod({ cartId: cart.id, shippingMethodId: id })
+      .then(() => {
+        // Toggle step to trigger parent reload effect in CheckoutForm
+        const nextStep = stepParam === "y" ? "delivery" : "y"
+        router.replace(pathname + `?step=${nextStep}`, { scroll: false })
+        router.refresh()
+      })
+      .catch((err) => {
+        setError(err.message)
+      })
+      .finally(() => {
+        setIsLoadingPrices(false)
+      })
   }
 
   useEffect(() => {
