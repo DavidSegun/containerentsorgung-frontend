@@ -65,7 +65,6 @@ const ProductsListing = ({ locale }: { locale?: string }) => {
 
   useEffect(() => {
     listProducts({
-      countryCode: locale,
       queryParams: {
         fields:
           "*variants.calculated_price,*seller.reviews,-thumbnail,-images,-type,-tags,-variants.options,-options,-collection,-collection_id",

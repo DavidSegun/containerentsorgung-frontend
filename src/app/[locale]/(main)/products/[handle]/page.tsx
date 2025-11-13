@@ -11,7 +11,6 @@ export async function generateMetadata({
   const { handle, locale } = await params
 
   const prod = await listProducts({
-    countryCode: locale,
     queryParams: { handle },
   }).then(({ response }) => response.products[0])
 

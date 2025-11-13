@@ -57,36 +57,36 @@ export const Item = ({
             {/* Display order item metadata */}
             {item.metadata && typeof item.metadata === 'object' && (
               <div className="mt-2 space-y-1 text-xs">
-                {'delivery_date' in item.metadata && item.metadata.delivery_date && (
+                {('delivery_date' in item.metadata && item.metadata.delivery_date) ? (
                   <p>
                     <strong>Delivery Date:</strong>{" "}
                     <span className="text-primary">{String(item.metadata.delivery_date)}</span>
                   </p>
-                )}
-                {'installation_location' in item.metadata && item.metadata.installation_location && (
+                ) : null}
+                {('installation_location' in item.metadata && item.metadata.installation_location) ? (
                   <p>
                     <strong>Installation:</strong>{" "}
                     <span className="text-primary">{String(item.metadata.installation_location)}</span>
                   </p>
-                )}
-                {'container_exchange' in item.metadata && item.metadata.container_exchange && (
+                ) : null}
+                {('container_exchange' in item.metadata && item.metadata.container_exchange) ? (
                   <p>
                     <strong>Container Exchange:</strong>{" "}
                     <span className="text-primary">{String(item.metadata.container_exchange)}</span>
                   </p>
-                )}
-                {'contact_name' in item.metadata && item.metadata.contact_name && (
+                ) : null}
+                {('contact_name' in item.metadata && item.metadata.contact_name) ? (
                   <p>
                     <strong>Contact:</strong>{" "}
                     <span className="text-primary">{String(item.metadata.contact_name)}</span>
                   </p>
-                )}
-                {'contact_phone' in item.metadata && item.metadata.contact_phone && (
+                ) : null}
+                {('contact_phone' in item.metadata && item.metadata.contact_phone) ? (
                   <p>
                     <strong>Phone:</strong>{" "}
                     <span className="text-primary">{String(item.metadata.contact_phone)}</span>
                   </p>
-                )}
+                ) : null}
               </div>
             )}
           </div>

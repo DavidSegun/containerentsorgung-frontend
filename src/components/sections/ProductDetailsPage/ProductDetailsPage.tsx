@@ -11,7 +11,6 @@ export const ProductDetailsPage = async ({
   locale: string
 }) => {
   const prod = await listProducts({
-    countryCode: locale,
     queryParams: { handle },
   }).then(({ response }) => response.products[0])
 

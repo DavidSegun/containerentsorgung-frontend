@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { signup } from "@/lib/data/customer"
@@ -163,9 +164,9 @@ export const RegisterPage = () => {
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-600">
                 Bereits ein Konto?{" "}
-                <a href="/user" className="text-gray-800 hover:text-gray-900 font-medium">
+                <Link href="/user" className="text-gray-800 hover:text-gray-900 font-medium">
                   Jetzt anmelden
-                </a>
+                </Link>
               </p>
             </div>
           </div>

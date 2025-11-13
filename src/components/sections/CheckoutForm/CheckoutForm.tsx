@@ -112,12 +112,12 @@ export const CheckoutForm = () => {
               {cart.shipping_address && (
                 <CartShippingMethodsSection
                   cart={cart}
-                  availableShippingMethods={shippingMethods}
+                  availableShippingMethods={shippingMethods as any}
                 />
               )}
               
               {/* Step 3: Payment & Place Order */}
-              {cart.shipping_address && cart.shipping_methods?.length > 0 && (
+              {cart.shipping_address && cart.shipping_methods && cart.shipping_methods.length > 0 && (
                 <CartPaymentSection cart={cart} availablePaymentMethods={paymentMethods} />
               )}
                 </div>

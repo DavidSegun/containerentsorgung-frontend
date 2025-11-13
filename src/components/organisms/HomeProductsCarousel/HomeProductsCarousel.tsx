@@ -17,7 +17,6 @@ export const HomeProductsCarousel = async ({
   const {
     response: { products },
   } = await listProducts({
-    countryCode: locale,
     queryParams: {
       limit: home ? 4 : 99999,
       order: "created_at",

@@ -90,36 +90,36 @@ export const CartItemsProducts = ({
                   {/* Display custom metadata */}
                   {product.metadata && typeof product.metadata === 'object' && (
                     <div className="mt-2 space-y-1 text-xs">
-                      {'delivery_date' in product.metadata && product.metadata.delivery_date && (
+                      {('delivery_date' in product.metadata && product.metadata.delivery_date) ? (
                         <p>
                           <strong>Delivery Date:</strong>{" "}
                           <span className="text-primary">{String(product.metadata.delivery_date)}</span>
                         </p>
-                      )}
-                      {'installation_location' in product.metadata && product.metadata.installation_location && (
+                      ) : null}
+                      {('installation_location' in product.metadata && product.metadata.installation_location) ? (
                         <p>
                           <strong>Installation:</strong>{" "}
                           <span className="text-primary">{String(product.metadata.installation_location)}</span>
                         </p>
-                      )}
-                      {'container_exchange' in product.metadata && product.metadata.container_exchange && (
+                      ) : null}
+                      {('container_exchange' in product.metadata && product.metadata.container_exchange) ? (
                         <p>
                           <strong>Container Exchange:</strong>{" "}
                           <span className="text-primary">{String(product.metadata.container_exchange)}</span>
                         </p>
-                      )}
-                      {'contact_name' in product.metadata && product.metadata.contact_name && (
+                      ) : null}
+                      {('contact_name' in product.metadata && product.metadata.contact_name) ? (
                         <p>
                           <strong>Contact:</strong>{" "}
                           <span className="text-primary">{String(product.metadata.contact_name)}</span>
                         </p>
-                      )}
-                      {'contact_phone' in product.metadata && product.metadata.contact_phone && (
+                      ) : null}
+                      {('contact_phone' in product.metadata && product.metadata.contact_phone) ? (
                         <p>
                           <strong>Phone:</strong>{" "}
                           <span className="text-primary">{String(product.metadata.contact_phone)}</span>
                         </p>
-                      )}
+                      ) : null}
                     </div>
                   )}
                 </div>

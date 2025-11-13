@@ -10,9 +10,11 @@ interface ProductDetailPageProps {
 
 export default async function ProductDetailPage({ params }: ProductDetailPageProps) {
   const { zoneId, wasteTypeId, containerId } = await params
+  // TODO: Fetch product data based on zoneId, wasteTypeId, containerId
+  // For now, return a placeholder
   return (
     <main>
-      <ProductDetail zoneId={zoneId} wasteTypeId={wasteTypeId} containerId={containerId} />
+      <div>Product Detail Page - Zone: {zoneId}, Waste Type: {wasteTypeId}, Container: {containerId}</div>
     </main>
   )
 }

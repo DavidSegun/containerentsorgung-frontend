@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 
@@ -170,9 +171,9 @@ export const ResetPasswordPage = ({ token }: ResetPasswordPageProps) => {
             </form>
 
             <div className="mt-6 text-center">
-              <a href="/user" className="text-sm text-gray-600 hover:text-gray-800">
+              <Link href="/user" className="text-sm text-gray-600 hover:text-gray-800">
                 Zurück zur Anmeldung
-              </a>
+              </Link>
             </div>
           </div>
 

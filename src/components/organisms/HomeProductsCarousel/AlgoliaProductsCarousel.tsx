@@ -39,7 +39,6 @@ const ProductsListing = ({ locale }: { locale: string }) => {
 
   useEffect(() => {
     listProducts({
-      countryCode: locale,
       queryParams: {
         limit: 99999,
         fields:

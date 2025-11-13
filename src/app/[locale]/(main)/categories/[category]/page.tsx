@@ -36,7 +36,7 @@ export async function generateMetadata({
     const regions = await listRegions()
     const locales = Array.from(
       new Set(
-        (regions || []).flatMap((r) => r.countries?.map((c) => c.iso_2) || [])
+        (regions || []).flatMap((r) => r.countries?.map((c: any) => c.iso_2) || [])
       )
     ) as string[]
     languages = locales.reduce<Record<string, string>>((acc, code) => {
@@ -113,7 +113,6 @@ async function Category({
   const {
     response: { products: jsonLdProducts },
   } = await listProducts({
-    countryCode: locale,
     queryParams: { limit: 8, order: "created_at", fields: "id,title,handle" },
     category_id: category.id,
   })

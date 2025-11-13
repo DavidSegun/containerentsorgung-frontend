@@ -1,7 +1,7 @@
 import { ConfirmedForm } from "@/components/sections/ConfirmedForm/ConfirmedForm"
 import { Metadata } from "next"
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Bestätigung",
   description: "Bestätigung - Container Entsorgung Shop",
 }

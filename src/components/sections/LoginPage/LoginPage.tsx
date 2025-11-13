@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { login } from "@/lib/data/customer"
@@ -112,9 +113,9 @@ export const LoginPage = () => {
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-600">
                 Noch kein Konto?{" "}
-                <a href="/user/register" className="text-gray-800 hover:text-gray-900 font-medium">
+                <Link href="/user/register" className="text-gray-800 hover:text-gray-900 font-medium">
                   Jetzt registrieren
-                </a>
+                </Link>
               </p>
             </div>
 
